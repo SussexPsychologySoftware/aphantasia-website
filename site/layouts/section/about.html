@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<div class="ph3 bg-off-white">
+    <div class="center mw6 pv3">
+<!--        {{ .Content }}-->
+        <img src="{{ .Params.logo }}" alt="" class="db w4 center w-50">
+
+        {{ .Params.intro | markdownify }}
+
+        <h1 class="f4 b lh-title mb2 mt3 primary">{{ .Params.team_title }}</h1>
+        <div class="flex-ns flex-column mb3">
+            {{ range .Params.team_members }}
+            <div>
+                <h4 class="f5 b lh-title mb2 primary">{{ .name }}</h4>
+                <p class="f5">{{ .bio | markdownify }}</p>
+            </div>
+            {{ end }}
+        </div>
+        <h1 class="f4 b lh-title mb2 primary">{{ .Params.previous_members_header }}</h1>
+        <div class="flex-ns flex-column mb3">
+            {{ range .Params.previous_team_members }}
+            <div>
+                <h4 class="f5 b lh-title mb2 primary">{{ .name }}</h4>
+                <p class="i">{{ .dates }}</p>
+                <p>{{ .bio | markdownify }}</p>
+            </div>
+            {{ end }}
+        </div>
+
+    </div>
+</div>
+
+{{ end }}
