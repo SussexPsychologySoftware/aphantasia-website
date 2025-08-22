@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<div class="ph3 bg-off-white">
+    <div class="center mw6 pv3">
+        <h1 class="f3 b lh-title mb2 mt3 primary">{{ .Params.title }}</h1>
+        <p class="f5">{{ .Params.intro }}</p>
+        <a href={{.Params.survey_link}}>Take the survey</a>
+
+        <h4 class="f4 b lh-title mt4 mb2 primary">{{ .Params.tests_title }}</h4>
+        <p class="f5">{{ .Params.intro | markdownify }}</p>
+        <p class="f5">{{ .Params.tests_descriptions | markdownify }}</p>
+
+        <div class="flex-ns flex-column mb3">
+            {{ range .Params.test_list }}
+            <div class="b--grey-2 b--solid bw2 pa4 mb3 br4" style="border-radius: 10px">
+                <h4 class="f5 b lh-title mb2 primary"><a class="no-underline" href={{.link}}>{{ .title }}</a></h4>
+                <p class="f5">{{ .description | markdownify }}</p>
+                <p><a href={{.link}}>{{.link}}</a></p>
+                <p class="f5 i">{{ .citation }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{ end }}
