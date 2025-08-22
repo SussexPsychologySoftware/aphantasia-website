@@ -14,21 +14,8 @@ collections: # A list of collections the CMS should be able to edit
         label: "Home Page"
         name: "home"
         fields:
-          - {label: Title, name: title, widget: string}
-          - label: Sections
-            name: sections
-            widget: list
-            fields:
-              - {label: Section Title, name: title, widget: string}
-              - {label: Section Text, name: text, widget: markdown}
-              - label: Items (optional)
-                name: items
-                widget: list
-                required: false
-                fields:
-                  - {label: Item Title, name: title, widget: string}
-                  - {label: Item Text, name: text, widget: markdown}
-          - {label: Bottom Text, name: bottom_text, widget: markdown, required: false}
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: string }
 
       - file: "site/content/contact/_index.md"
         label: "Contact Page"
