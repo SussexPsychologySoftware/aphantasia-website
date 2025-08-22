@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<div class="ph3 bg-off-white">
+    <div class="center mw6 pv3">
+        <h1 class="f3 b lh-title mb2 mt3 primary">{{ .Params.title }}</h1>
+        <div class="flex-ns flex-column mb3">
+            {{ range .Params.top_sections }}
+            <div>
+                <h4 class="f5 b lh-title mb2 primary">{{ .title }}</h4>
+                <p class="f5">{{ .text | markdownify  }}</p>
+            </div>
+            {{ end }}
+
+            <h1 class="f4 b lh-title mb2 primary">Bibliography</h1>
+
+            {{ range .Params.bibliography }}
+            <div>
+                <h4 class="f5 b lh-title mb2 primary">{{ .section_title }}</h4>
+                {{ range .citations }}
+                    {{ if .link }}
+                        <a href={{.link}} class="f6">{{.citation}}</a>
+                    {{ else }}
+                        <p class="f6">{{.citation}}</p>
+                    {{ end }}
+                {{ end }}
+            </div>
+            {{ end }}
+
+
+            {{ range .Params.bottom_sections }}
+            <div>
+                <h4 class="f5 b lh-title mb2 primary">{{ .title }}</h4>
+                <p class="f5">{{ .text | markdownify  }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+{{ end }}
