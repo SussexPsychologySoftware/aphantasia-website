@@ -1,0 +1,20 @@
+---
+title: "Join our research group!"
+intro: "Join our participant pool of people with aphantasia. Take our 15-minute survey to tell us about your imagery abilities and indicate your willingness to be contacted again for future studies. Taking this survey does not oblige you to take part further."
+survey_link: "https://www.google.com/"
+tests_title: "Tests for Mental Imagery"
+tests_description: "These tests are well accepted and well used in this field, we have provided them below with instant scoring and feedback."
+test_list:
+  - title: "Vividness of Visual Imagery Questionnaire (VVIQ)"
+    description: "Questionnaire for adults (18+) for visual imagery specifically"
+    link: "https://aphantasia.com/study/vviq/?srsltid=AfmBOopiCgykPB1i3SFh_PBEXI9GPc0tJaOza3cq2jttw-rjNt61zanG"
+    citation: "Marks, D. F. (1973). Visual imagery differences in the recall of pictures. British journal of Psychology, 64(1), 17-24."
+  - title: "Clarity of Auditory Imagery Scale (CAIS)"
+    description: "Questionnaire for adults (18+) for auditory imagery specifically"
+    link: "https://link.springer.com/article/10.3758/BRM.42.3.785"
+    citation: "Willander, J., & Baraldi, S. (2010). Development of a new clarity of auditory imagery scale. Behavior research methods, 42, 785-790."
+  - title: "Plymouth Multisensory Imagery Questionniare (PSI-Q)"
+    description: "Questionnaire for adults (18+) for imagery across all 5 external senses"
+    link: "https://motivationlabblog.wordpress.com/wp-content/uploads/2015/11/psi-q-pdf-a4-landscape1.pdf"
+    citation: "Andrade, J., May, J., Deeprose, C., Baugh, S. J., & Ganis, G. (2014). Assessing vividness of mental imagery: The Plymouth sensory imagery questionnaire. British Journal of Psychology, 105(4), 547-563."
+---
