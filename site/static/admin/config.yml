@@ -6,17 +6,6 @@ media_folder: "site/static/img" # Folder where user uploaded files should go
 public_folder: "img"
 
 collections: # A list of collections the CMS should be able to edit
-  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "site/content/post" # The path to the folder where the documents are stored
-    path: "{{slug}}/index" # Each document is inside a folder with the slug name.
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Intro Blurb", name: "description", widget: "text"}
-      - {label: "Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     files:
@@ -25,70 +14,147 @@ collections: # A list of collections the CMS should be able to edit
         name: "home"
         fields:
           - {label: Title, name: title, widget: string}
-          - {label: Subtitle, name: subtitle, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: "Blurb", name: blurb, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Intro", name: intro, widget: object, fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Products", name: products, widget: list, fields: [
-              {label: "Image", name: "image", widget: "image"},
-              {label: "Text", name: "text", widget: "text"}]}
-          - {label: "Values", name: "values", widget: "object", fields: [
-              {label: "Heading", name: "heading", widget: string},
-              {label: "Text", name: "text", widget: "text"}]}
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - {label: Section Title, name: title, widget: string}
+              - {label: Section Text, name: text, widget: markdown}
+              - label: Items (optional)
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: Item Title, name: title, widget: string}
+                  - {label: Item Text, name: text, widget: markdown}
+          - {label: Bottom Text, name: bottom_text, widget: markdown, required: false}
+
       - file: "site/content/contact/_index.md"
         label: "Contact Page"
         name: "contact"
         fields:
           - {label: Title, name: title, widget: string}
-          - {label: Logo, name: logo, widget: image}
-          - {label: Body, name: body, widget: markdown}
+          - {label: Prompt, name: prompt, widget: text}
           - label: Contact Entries
             name: contact_entries
             widget: list
             fields:
-              - label: Heading
-                name: heading
-                widget: string
-              - label: Text
-                name: text
-                widget: text
-      - file: "site/content/products/_index.md"
-        label: "Products Page"
-        name: "products"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
-          - {label: Testimonials, name: testimonials, widget: list, fields: [{label: Quote, name: quote, widget: string}, {label: Author, name: author, widget: string}]}
-          - {label: Full_image, name: full_image, widget: image}
-          - {label: Pricing, name: pricing, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: string}, {label: Plans, name: plans, widget: list, fields: [{label: Plan, name: plan, widget: string}, {label: Price, name: price, widget: string}, {label: Description, name: description, widget: string}, {label: Items, name: items, widget: list}]}]}
-      - file: "site/content/values/_index.md"
-        label: "Values Page"
-        name: "values"
-        fields:
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - label: Values
-            name: values
-            widget: list
-            fields:
               - {label: Heading, name: heading, widget: string}
               - {label: Text, name: text, widget: text}
-              - {label: Image, name: imageUrl, widget: image}
-  - name: "site_settings"
-    label: "Site Settings"
-    files:
-      - file: "site/data/footer.json"
-        label: Footer
-        name: footer
+
+      - file: "site/content/parents/_index.md"
+        label: "Information for Parents"
+        name: "parents"
         fields:
           - {label: Title, name: title, widget: string}
-          - {label: Blurb, name: blurb, widget: text}
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - {label: Section Title, name: title, widget: string}
+              - {label: Section Text, name: text, widget: markdown}
+              - label: Items (optional)
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: Item Title, name: title, widget: string}
+                  - {label: Item Text, name: text, widget: markdown}
+          - {label: Bottom Text, name: bottom_text, widget: markdown, required: false}
+
+      - file: "site/content/teachers/_index.md"
+        label: "Information for Teachers"
+        name: "teachers"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - {label: Section Title, name: title, widget: string}
+              - {label: Section Text, name: text, widget: markdown}
+
+      - file: "site/content/tests/_index.md"
+        label: "Join Research / Tests"
+        name: "tests"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Intro, name: intro, widget: markdown}
+          - {label: Survey Link, name: survey_link, widget: string}
+          - {label: Tests Title, name: tests_title, widget: string}
+          - {label: Tests Description, name: tests_description, widget: markdown}
+          - label: Test List
+            name: test_list
+            widget: list
+            fields:
+              - {label: Test Title, name: title, widget: string}
+              - {label: Description, name: description, widget: text}
+              - {label: Link, name: link, widget: string}
+              - {label: Citation, name: citation, widget: text}
+
+      - file: "site/content/researchers/_index.md"
+        label: "Resources for Researchers"
+        name: "researchers"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - label: Top Sections
+            name: top_sections
+            widget: list
+            fields:
+              - {label: Section Title, name: title, widget: string}
+              - {label: Section Text, name: text, widget: markdown}
+          - label: Bibliography
+            name: bibliography
+            widget: list
+            fields:
+              - {label: Section Title, name: section_title, widget: string}
+              - label: Citations
+                name: citations
+                widget: list
+                fields:
+                  - {label: Citation, name: citation, widget: text}
+                  - {label: Link, name: link, widget: string, required: false}
+          - label: Bottom Sections
+            name: bottom_sections
+            widget: list
+            fields:
+              - {label: Section Title, name: title, widget: string}
+              - {label: Section Text, name: text, widget: markdown}
+
+      - file: "site/content/faq/_index.md"
+        label: "FAQ Page"
+        name: "faq"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - label: Sections
+            name: sections
+            widget: list
+            fields:
+              - {label: Question, name: title, widget: string}
+              - {label: Answer, name: text, widget: markdown}
+
+      - file: "site/content/about/_index.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {label: Title, name: title, widget: string}
+          - {label: Logo, name: logo, widget: string, required: false}
+          - {label: Intro, name: intro, widget: string}
+          - {label: "Team Title", name: team_title, widget: string}
+          - label: "Team Members"
+            name: team_members
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Bio, name: bio, widget: string}
+          - {label: "Previous Team Members section header", name: previous_members_header, widget: string}
+          - label: 'Previous Team Members'
+            name: previous_team_members
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Bio, name: bio, widget: string}
+
       - file: "site/hugo.toml"
         label: Hugo Config
         name: config
@@ -103,4 +169,4 @@ collections: # A list of collections the CMS should be able to edit
               - label: Open Graph Image
                 name: images
                 widget: list
-                field: { label: Image, name: image, widget: image }
+                field: {label: Image, name: image, widget: image}
